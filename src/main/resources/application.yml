@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: bankingMsBFF
+
+server:
+  port: 11103
+
+services:
+  clients: http://${LOCAL_HOST}:11101/v1/api/clients
+  products: http://${LOCAL_HOST}:11102/v1/api/products
+
