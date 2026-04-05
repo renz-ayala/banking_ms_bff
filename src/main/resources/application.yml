@@ -1,6 +1,13 @@
 spring:
   application:
     name: bankingMsBFF
+  r2dbc:
+    url: r2dbc:postgresql://${DB_HOST}:${DB_PORT}/${DB}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    pool:
+      max-size: 5
+      initial-size: 2
 
 server:
   port: 11103
@@ -8,4 +15,8 @@ server:
 services:
   clients: http://${LOCAL_HOST}:11101/v1/api/clients
   products: http://${LOCAL_HOST}:11102/v1/api/products
+
+secret_keys:
+  codes:
+    jwt: ${JWT_SECRET}
 
