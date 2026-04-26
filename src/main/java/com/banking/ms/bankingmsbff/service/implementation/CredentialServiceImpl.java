@@ -34,7 +34,7 @@ public class CredentialServiceImpl implements CredentialService {
                     return repository.findByUsernameAndPassword(parts[0], parts[1]);
                 })
                 .map( user -> this.generateJwt(user.getUsername()))
-                .switchIfEmpty(Mono.error(new RuntimeException("Credenciales incorrecta")));
+                .switchIfEmpty(Mono.error(new RuntimeException("Credenciales incorrectas")));
     }
 
     private String generateJwt(String username) {
