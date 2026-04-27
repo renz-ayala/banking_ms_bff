@@ -1,6 +1,5 @@
 package com.banking.ms.bankingmsbff.service.implementation;
 
-import com.banking.ms.bankingmsbff.model.Credentials;
 import com.banking.ms.bankingmsbff.repository.CredentialRepository;
 import com.banking.ms.bankingmsbff.service.CredentialService;
 import io.jsonwebtoken.Jwts;

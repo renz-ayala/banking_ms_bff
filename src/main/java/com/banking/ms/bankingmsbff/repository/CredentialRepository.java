@@ -1,6 +1,6 @@
 package com.banking.ms.bankingmsbff.repository;
 
-import com.banking.ms.bankingmsbff.model.Credentials;
+import com.banking.ms.bankingmsbff.repository.entity.Credentials;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;

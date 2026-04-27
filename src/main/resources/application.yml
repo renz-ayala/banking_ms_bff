@@ -13,10 +13,11 @@ server:
   port: 11103
 
 services:
-  clients: http://${LOCAL_HOST}:11101/v1/api/clients
-  products: http://${LOCAL_HOST}:11102/v1/api/products
+  clients: http://localhost:11101/v1/api/clients
+  products: http://localhost:11102/v1/api/products
 
 secret_keys:
   codes:
     jwt: ${JWT_SECRET}
+    crypt_key: ${CRYPT_KEY}
 

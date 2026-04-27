@@ -1,4 +1,4 @@
-package com.banking.ms.bankingmsbff.model;
+package com.banking.ms.bankingmsbff.service.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

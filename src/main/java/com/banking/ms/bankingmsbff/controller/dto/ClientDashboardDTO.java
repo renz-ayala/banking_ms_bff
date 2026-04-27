@@ -1,5 +1,7 @@
-package com.banking.ms.bankingmsbff.model;
+package com.banking.ms.bankingmsbff.controller.dto;
 
+import com.banking.ms.bankingmsbff.service.model.Client;
+import com.banking.ms.bankingmsbff.service.model.Product;
 import lombok.Builder;
 import lombok.Data;
 
