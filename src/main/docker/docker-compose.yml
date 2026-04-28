@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  ms-clients:
+    build:
+      context: ./bank-clients/src/main/docker
+      dockerfile: Dockerfile
+    container_name: ms-clients
+    ports:
+      - "11101:11101"
+    env_file:
+      - ./bank-clients/src/main/docker/.env
+    network_mode: "bridge" 
+
+  ms-products:
+    build:
+      context: ./bank-products/src/main/docker
+      dockerfile: Dockerfile
+    container_name: ms-products
+    ports:
+      - "11102:11102"
+    env_file:
+      - ./bank-products/src/main/docker/.env
+    network_mode: "bridge"
+
+  ms-bff:
+    build:
+      context: ./bank-bff/src/main/docker
+      dockerfile: Dockerfile
+    container_name: ms-bff
+    ports:
+      - "11103:11103"
+    env_file:
+      - ./bank-bff/src/main/docker/.env
+    environment:
+      - LOCALHOST=host.docker.internal
+    depends_on:
+      - ms-clients
+      - ms-products
+
+## docker compose up --build

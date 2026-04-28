@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+src/main/docker/bankingMsBFF-0.0.1-SNAPSHOT.jar
+
+*.env
