@@ -1,4 +1,4 @@
-package com.banking.ms.bankingmsbff.config;
+package com.banking.ms.bankingmsbff.util;
 
 import lombok.NonNull;
 import org.springframework.stereotype.Component;

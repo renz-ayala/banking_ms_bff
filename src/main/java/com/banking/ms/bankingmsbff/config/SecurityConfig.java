@@ -22,7 +22,7 @@ public class SecurityConfig {
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         return http
-                .csrf(csrf -> csrf.disable())
+                .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange( exchange -> exchange
                         .pathMatchers("/v1/login").permitAll()
                         .pathMatchers("/v1/banca/dashboard/**").authenticated()
@@ -36,7 +36,10 @@ public class SecurityConfig {
     public ReactiveJwtDecoder jwtDecoder() {
         SecretKeySpec secretKeySpec = new SecretKeySpec(
                 secret.getBytes(StandardCharsets.UTF_8),
-                "HmacSHA256");
-        return NimbusReactiveJwtDecoder.withSecretKey(secretKeySpec).build();
+                "HmacSHA256"
+        );
+        return NimbusReactiveJwtDecoder
+                .withSecretKey(secretKeySpec)
+                .build();
     }
 }

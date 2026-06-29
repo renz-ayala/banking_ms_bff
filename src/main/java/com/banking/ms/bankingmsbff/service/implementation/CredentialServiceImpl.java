@@ -2,6 +2,7 @@ package com.banking.ms.bankingmsbff.service.implementation;
 
 import com.banking.ms.bankingmsbff.repository.CredentialRepository;
 import com.banking.ms.bankingmsbff.service.CredentialService;
+import com.banking.ms.bankingmsbff.util.Exceptions.BadCredentialsException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
@@ -33,7 +34,7 @@ public class CredentialServiceImpl implements CredentialService {
                     return repository.findByUsernameAndPassword(parts[0], parts[1]);
                 })
                 .map( user -> this.generateJwt(user.getUsername()))
-                .switchIfEmpty(Mono.error(new RuntimeException("Credenciales incorrectas")));
+                .switchIfEmpty(Mono.error(new BadCredentialsException("Credenciales incorrectas")));
     }
 
     private String generateJwt(String username) {
