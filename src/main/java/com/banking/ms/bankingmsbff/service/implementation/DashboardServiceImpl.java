@@ -56,6 +56,5 @@ public class DashboardServiceImpl implements DashboardService {
                         .client(tuple.getT1())
                         .products(tuple.getT2())
                         .build());
-
     }
 }

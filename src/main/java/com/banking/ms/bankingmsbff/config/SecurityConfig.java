@@ -24,7 +24,7 @@ public class SecurityConfig {
         return http
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange( exchange -> exchange
-                        .pathMatchers("/v1/login").permitAll()
+                        .pathMatchers("/v1/login", "/v1/banca/dashboard/base64/**").permitAll()
                         .pathMatchers("/v1/banca/dashboard/**").authenticated()
                         .anyExchange().permitAll())
                 .oauth2ResourceServer( auth -> auth
