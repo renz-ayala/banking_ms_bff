@@ -4,7 +4,6 @@ import com.banking.ms.bankingmsbff.controller.DashboardControllerApi;
 import com.banking.ms.bankingmsbff.controller.dto.ClientDashboardDTO;
 import com.banking.ms.bankingmsbff.controller.dto.Container;
 import com.banking.ms.bankingmsbff.service.DashboardService;
-import com.banking.ms.bankingmsbff.util.Exceptions.BadCredentialsException;
 import gg.renz.CryptUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 import java.util.Base64;
+import java.util.InputMismatchException;
 
 @Slf4j
 @RestController
@@ -39,9 +39,9 @@ public class DashboardController implements DashboardControllerApi {
         try {
             return cryptUtil.decrypt(data);
         } catch (Exception e) {
-            log.error("Error encriptando", e);
-            throw new BadCredentialsException("La información es incorrecta");
+            throw new InputMismatchException("La entrada es inválida");
         }
+
     }
 
     @Override
@@ -53,6 +53,10 @@ public class DashboardController implements DashboardControllerApi {
     @Override
     @PostMapping("/base64/decode")
     public Container toString(@RequestBody Container container) {
-        return new Container(new String(Base64.getDecoder().decode(container.text())));
+        try {
+            return new Container(new String(Base64.getDecoder().decode(container.text())));
+        } catch (Exception e) {
+            throw new InputMismatchException("La entrada es inválida");
+        }
     }
 }
