@@ -22,10 +22,10 @@ public class DashboardServiceImpl implements DashboardService {
 
     private final WebClient webClient;
 
-    @Value("${services.clients}")
+    @Value("${external-services.clients}")
     private String clientsUrl;
 
-    @Value("${services.products}")
+    @Value("${external-services.products}")
     private String productsUrl;
 
     @Override

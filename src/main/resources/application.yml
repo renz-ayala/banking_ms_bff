@@ -8,13 +8,11 @@ spring:
     pool:
       max-size: 5
       initial-size: 2
+  profiles:
+    active: ${DEPLOY:prod}
 
 server:
   port: 11103
-
-services:
-  clients: http://${LOCALHOST}:11101/v1/api/clients
-  products: http://${LOCALHOST}:11102/v1/api/products
 
 secret_keys:
   codes:

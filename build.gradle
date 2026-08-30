@@ -15,8 +15,14 @@ java {
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
+    maven {
+        url = uri("https://maven.pkg.github.com/renz-ayala/greckrypto_starter")
+        credentials {
+            username = System.getenv("GITHUB_USER")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
 }
 
 dependencies {
@@ -41,7 +47,7 @@ dependencies {
     //aspect
     implementation 'org.springframework.boot:spring-boot-starter-aop'
     //starter
-    implementation 'gg.renz:Greckrypto:1.0-SNAPSHOT'
+    implementation 'gg.renz:greckrypto:1.0'
     // swagger / openapi
     implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.8.5'
 }

@@ -1,0 +1,4 @@
+external-services:
+  clients: http://localhost:11101/v1/api/clients
+  products: http://localhost:11102/v1/api/products
+
