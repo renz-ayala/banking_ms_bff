@@ -15,11 +15,10 @@ Arquitectura base de servicios financieros reactivos basada en microservicios as
 
 ## Estructura del Proyecto
 
-* **`greckrypto`**: Starter autoconfigurable que provee el componente de criptografía (debe instalarse de forma prioritaria en el repositorio local).
-* **`bank_ms_clients`**: Microservicio encargado de la gestión de información de clientes.
-* **`bank_ms_products`**: Microservicio encargado de la gestión de productos financieros.
+* **`greckrypto`**: Starter autoconfigurable que provee el componente de criptografía (https://github.com/renz-ayala/Greckrypto_starter).
+* **`bank_ms_clients`**: Microservicio encargado de la gestión de información de clientes (https://github.com/renz-ayala/banking_ms_clients).
+* **`bank_ms_products`**: Microservicio encargado de la gestión de productos financieros (https://github.com/renz-ayala/banking_ms_products).
 * **`bank_ms_bff`**: Microservicio BFF encargado de la orquestación reactiva.
-* **`docker-compose.yml`**: Orquestador de contenedores para el entorno local.
 ---
 
 ## Interfaz de Usuario (Cliente Demo)
