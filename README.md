@@ -176,6 +176,7 @@ cp ./build/libs/bankingMsProducts-0.0.1-SNAPSHOT.jar ./src/main/docker/
 
 ### 3. Orquestación del Entorno con Docker Compose
 Una vez generados y ubicados los artefactos `.jar`, inicie la construcción y ejecución de los contenedores:
+Debe colocar el archivo docker-compose (esta en la carpeta src/main/docker) en la raiz de la carpeta que contenga todos los proyectos.
 ```bash
 docker compose up --build -d
 ```
